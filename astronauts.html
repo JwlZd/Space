@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Famous Astronauts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg-1:#020518;--text:#e6eef6;--muted:#9aa7b5;--card:rgba(255,255,255,0.03);--accent:#66d1ff}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui;background:linear-gradient(180deg,var(--bg-1),#061028);color:var(--text)}
+    .wrap{max-width:1000px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    h1{font-family:Merriweather,serif;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:24px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:linear-gradient(135deg,#053040,#072b3a);color:var(--accent);font-size:20px}
+    .meta{display:flex;gap:12px;align-items:center}
+    .name{font-weight:600;margin:0}
+    .bio{color:var(--muted);font-size:14px}
+    a.more{color:var(--accent);text-decoration:none;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Famous astronauts</h1>
+        <p class="lead">Short bios and milestone facts. All avatars are inline so the page previews correctly anywhere.</p>
+      </div>
+      <nav>
+        <a href="space.html" style="color:var(--muted);text-decoration:none">Back to timeline</a>
+      </nav>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">YG</div>
+          <div>
+            <p class="name">Yuri Gagarin</p>
+            <p class="bio">First human in space (Vostok 1, 1961). Soviet cosmonaut who completed one orbit of Earth.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Yuri_Gagarin" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">NA</div>
+          <div>
+            <p class="name">Neil Armstrong</p>
+            <p class="bio">Commander of Apollo 11; first human to walk on the Moon (1969).</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Neil_Armstrong" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">VT</div>
+          <div>
+            <p class="name">Valentina Tereshkova</p>
+            <p class="bio">First woman in space (Vostok 6, 1963), a major milestone for human spaceflight.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Valentina_Tereshkova" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">SB</div>
+          <div>
+            <p class="name">Sultan bin Salman Al Saud</p>
+            <p class="bio">First Arab and first Muslim in space (STS-51-G, 1985). Flew as a payload specialist aboard NASA's Space Shuttle.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sultan_bin_Salman_Al_Saud" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">HA</div>
+          <div>
+            <p class="name">Hazzaa AlMansoori</p>
+            <p class="bio">First Emirati astronaut to reach the ISS (2019). Represented the UAE on a short-duration mission.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Hazzaa_AlMansoori" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">SR</div>
+          <div>
+            <p class="name">Sally Ride</p>
+            <p class="bio">First American woman in space (STS-7, 1983) and a role model for women in STEM.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sally_Ride" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div class="avatar">MJ</div>
+          <div>
+            <p class="name">Mae Jemison</p>
+            <p class="bio">First African-American woman in space (STS-47, 1992); physician and engineer.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Mae_Jemison" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+</body>
+</html>
