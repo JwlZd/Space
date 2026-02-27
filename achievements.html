@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Space Achievements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Merriweather:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg-1:#000;--bg-2:#000;--accent:#66d1ff;--muted:#9aa7b5;--card:rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#e6eef6;overflow-x:hidden}
+    body::before,body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none}
+    body::before{background-image:radial-gradient(rgba(255,255,255,0.95) 0.8px, transparent 1px),radial-gradient(rgba(255,255,255,0.7) 0.6px, transparent 1px);background-size:160px 160px,48px 48px;opacity:0.18;transform:translateZ(0)}
+    body::after{background-image:radial-gradient(rgba(255,255,255,0.9) 0.9px, transparent 1px);background-size:24px 24px;opacity:0.06;animation:stars-twinkle 6s linear infinite}
+    @keyframes stars-twinkle{0%{opacity:0.06}50%{opacity:0.12}100%{opacity:0.06}}
+    header{display:flex;align-items:center;justify-content:space-between;padding:24px;position:relative;z-index:1}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,#111317,#0b0f12);display:flex;align-items:center;justify-content:center;font-family:Merriweather;font-weight:700;color:var(--accent)}
+    h1{font-family:'Indie Flower',Merriweather,serif;margin:0;font-size:28px}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px}
+    .grid{max-width:960px;margin:20px auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;position:relative;z-index:1}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .card img{width:100%;border-radius:8px;display:block}
+    .card h2{font-size:20px;margin:12px 0 6px}
+    .card .date{color:var(--muted);font-size:14px}
+    .card p{color:var(--muted);font-size:14px}
+    .credit{color:var(--muted);font-size:12px;margin-top:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WS</div>
+    <h1>Space achievements</h1>
+    <nav><a href="space.html">Timeline</a> | <a href="astronauts.html">Astronauts</a></nav>
+  </header>
+  <div class="grid">
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/sputnik1.jpg" alt="Sputnik 1">
+      <h2>Sputnik 1</h2>
+      <div class="date">1957</div>
+      <p>First artificial satellite, launched by USSR.</p>
+      <div class="credit">Image: NASA (public domain)</div>
+    </div>
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/as11-40-5874.jpg" alt="Apollo 11 Moon">
+      <h2>Apollo 11 Moon landing</h2>
+      <div class="date">1969</div>
+      <p>First humans on lunar surface: Armstrong & Aldrin.</p>
+      <div class="credit">Image: NASA (public domain)</div>
+    </div>
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/heic1509a.jpg" alt="Hubble Space Telescope">
+      <h2>Hubble Space Telescope</h2>
+      <div class="date">1990</div>
+      <p>Space telescope revolutionizing astronomy.</p>
+      <div class="credit">Image: NASA/ESA</div>
+    </div>
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/iss_0.jpg" alt="International Space Station">
+      <h2>International Space Station</h2>
+      <div class="date">1998–</div>
+      <p>Modular orbiting lab and multinational project.</p>
+      <div class="credit">Image: NASA (public domain)</div>
+    </div>
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/spacex_falcon9.jpg" alt="SpaceX Falcon 9 launch">
+      <h2>Private launch era</h2>
+      <div class="date">2004–</div>
+      <p>Commercial rockets and reusable stages.</p>
+      <div class="credit">Image: SpaceX</div>
+    </div>
+    <div class="card">
+      <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/pia24464-16.jpg" alt="Mars rover Perseverance">
+      <h2>Mars rovers</h2>
+      <div class="date">2020s</div>
+      <p>Curiosity, Perseverance providing rich surface data.</p>
+      <div class="credit">Image: NASA/JPL-Caltech</div>
+    </div>
+  </div>
+</body>
+</html>
