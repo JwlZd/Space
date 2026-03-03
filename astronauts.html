@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Famous Astronauts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg-1:#020518;--text:#e6eef6;--muted:#9aa7b5;--card:rgba(255,255,255,0.03);--accent:#66d1ff}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui;background:linear-gradient(180deg,var(--bg-1),#061028);color:var(--text)}
+    .wrap{max-width:1000px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    h1{font-family:Merriweather,serif;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:24px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:linear-gradient(135deg,#053040,#072b3a);color:var(--accent);font-size:20px}
+    .meta{display:flex;gap:12px;align-items:center}
+    .name{font-weight:600;margin:0}
+    .date{color:var(--muted);font-size:13px;margin-top:6px}
+    .bio{color:var(--muted);font-size:14px}
+    a.more{color:var(--accent);text-decoration:none;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Famous astronauts</h1>
+        <p class="lead">Pioneers, explorers, and innovators who expanded humanity's reach beyond Earth. From early space explorers to modern-day ISS crew members, these astronauts represent diverse backgrounds and achievements.</p>
+      </div>
+      <nav>
+        <a href="index.html" style="color:var(--muted);text-decoration:none">Back to timeline</a> |
+        <a href="achievements.html" style="color:var(--muted);text-decoration:none">Achievements</a>
+      </nav>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Yuri Gagarin</p>
+            <div class="date">1961</div>
+            <p class="bio">First human in space (Vostok 1, 1961). Soviet cosmonaut who completed one orbit of Earth in 108 minutes at age 27, achieving humanity's first crewed spaceflight and becoming an international hero.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Yuri_Gagarin" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Neil Armstrong</p>
+            <div class="date">1962–1969</div>
+            <p class="bio">Commander of Apollo 11 and first human to walk on the Moon (July 20, 1969). Famously said "That's one small step for man, one giant leap for mankind" as he stepped onto the lunar surface, achieving the era's greatest technological goal.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Neil_Armstrong" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Valentina Tereshkova</p>
+            <div class="date">1963</div>
+            <p class="bio">First woman in space (Vostok 6, 1963). Soviet cosmonaut who spent nearly 71 hours in orbit, completing 48 orbits—more than all previous U.S. astronauts combined. A major milestone for women in spaceflight.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Valentina_Tereshkova" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Sultan bin Salman Al Saud</p>
+            <div class="date">1985</div>
+            <p class="bio">First Arab and first Muslim in space (STS-51-G, 1985). Flew as a payload specialist aboard NASA's Space Shuttle Discovery. His flight opened the door for Arab world participation in human spaceflight programs globally.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sultan_bin_Salman_Al_Saud" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card"> 
+        <div class="meta">
+          <div>
+            <p class="name">Hazza Al Mansoori</p>
+            <div class="date">2019</div>
+            <p class="bio">First Emirati astronaut to reach the ISS (2019). Flew as a mission specialist aboard Soyuz MS-15 with a Russian-Japanese crew. His eight-day mission included scientific experiments and made history for the UAE and Arab world space programs.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Hazzaa_AlMansoori" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Sally Ride</p>
+            <div class="date">1983, 1984</div>
+            <p class="bio">First American woman in space (STS-7, 1983). Flew two shuttle missions and logged over 343 hours in space. A legendary role model for women in STEM; later founded Sally Ride Science to inspire youth in science and engineering.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sally_Ride" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Mae Jemison</p>
+            <div class="date">1992</div>
+            <p class="bio">First African-American woman in space (STS-47, 1992); physician and engineer. She conducted experiments in life sciences during her eight-day mission aboard Space Shuttle Endeavour.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Mae_Jemison" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Alan Shepard</p>
+            <div class="date">1961, 1971</div>
+            <p class="bio">First American in space on Freedom 7 (1961) and commander of Apollo 14 (1971), becoming the fifth person to walk on the Moon. A pioneering Mercury astronaut and naval aviator.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Alan_Shepard" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Guion Bluford</p>
+            <div class="date">1983–1992</div>
+            <p class="bio">First African-American in space (STS-8, 1983). Flew four Shuttle missions and logged over 688 hours in orbit, contributing to materials science and life science experiments.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Guion_Bluford" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Arnaldo Tamayo Méndez</p>
+            <div class="date">1980</div>
+            <p class="bio">First Latin American and first person of African descent in space (Soyuz 38, 1980). Cuban cosmonaut who carried out experiments in Earth sciences and materials aboard Salyut 6.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Arnaldo_Tamayo_M%C3%A9ndez" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Rakesh Sharma</p>
+            <div class="date">1984</div>
+            <p class="bio">First Indian citizen in space (Soyuz T-11, 1984). Flew to the Salyut 7 space station, conducted scientific experiments and famously told Indira Gandhi "Saare jahaan se achcha India hamara" while circling Earth.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Rakesh_Sharm" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Buzz Aldrin</p>
+            <div class="date">1966–1971</div>
+            <p class="bio">Lunar module pilot on Apollo 11 (1969); second person to walk on the Moon. Flew 1,452 orbits in space across three missions and conducted the first spacewalk during Gemini 12.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Buzz_Aldrin" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">John Glenn</p>
+            <div class="date">1962, 1998</div>
+            <p class="bio">First American to orbit Earth (Mercury-Atlas 6, 1962) and served in the Marine Corps with distinction. Flew his second spaceflight at age 77 aboard Space Shuttle Discovery, proving that space exploration spans all ages.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/John_Glenn" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Kalpana Chawla</p>
+            <div class="date">1997, 2003</div>
+            <p class="bio">First woman of Indian origin in space (STS-87, 1997). Tragically lost with six crew members in Space Shuttle Columbia re-entry accident (2003). Her legacy inspired many in STEM globally.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Kalpana_Chawla" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Peggy Whitson</p>
+            <div class="date">2002–present</div>
+            <p class="bio">Most experienced female astronaut and ISS commander multiple times. Has logged over 665 days in orbit across 10 missions—more than any other NASA astronaut. Holds the record for most spacewalks by a woman.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Peggy_Whitson" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Chris Hadfield</p>
+            <div class="date">1992, 2001, 2012</div>
+            <p class="bio">Canadian astronaut and ISS commander (Expedition 35). Known for extraordinary outreach and viral videos from space, including singing David Bowie's "Space Oddity" aboard the ISS.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Chris_Hadfield" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Noora AlMatrooshi</p>
+            <div class="date">2023</div>
+            <p class="bio">First Arab and Emirati woman in space (Axiom-2, 2023). Engineer and mission specialist from UAE. Her mission marked a historic milestone for women in Arab world space exploration and STEM participation.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Noora_AlMatrooshi" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="meta">
+          <div>
+            <p class="name">Sultan AlNeyadi</p>
+            <div class="date">2023</div>
+            <p class="bio">Second Emirati astronaut and first Arab to conduct a long-duration ISS residency (186 days, Expedition 68–69, 2023). An engineer and pilot who contributed extensively to research and outreach during his mission.</p>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sultan_AlNeyadi" target="_blank" rel="noopener">Read more</a>
+          </div>
+        </div>
+      </article>
+
+  </div>
+</body>
+</html>

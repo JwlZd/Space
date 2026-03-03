@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>The World Space Timeline</title>
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Merriweather:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<style>
+		:root{
+			--bg-1: #000000;
+			--bg-2: #000000;
+			--accent: #66d1ff;
+			--muted: #9aa7b5;
+			--card: rgba(255,255,255,0.03);
+			--glass: rgba(255,255,255,0.04);
+		}
+		html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#e6eef6;overflow-x:hidden}
+
+		/* layered starfield and subtle twinkle */
+		body::before, body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none}
+		body::before{
+			background-image: radial-gradient(rgba(255,255,255,0.95) 0.8px, transparent 1px), radial-gradient(rgba(255,255,255,0.7) 0.6px, transparent 1px);
+			background-size: 160px 160px, 48px 48px;
+			opacity:0.18;
+			transform:translateZ(0);
+		}
+		body::after{
+			background-image: radial-gradient(rgba(255,255,255,0.9) 0.9px, transparent 1px);
+			background-size: 24px 24px;
+			opacity:0.06;
+			animation: stars-twinkle 6s linear infinite;
+		}
+
+		@keyframes stars-twinkle{0%{opacity:0.06}50%{opacity:0.12}100%{opacity:0.06}}
+
+		.container{position:relative;z-index:1;max-width:1100px;margin:48px auto;padding:36px}
+		header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+		.brand{display:flex;gap:16px;align-items:center}
+		.logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#111317,#0b0f12);display:flex;align-items:center;justify-content:center;font-family:Merriweather;font-weight:700;color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+		h1{font-family: 'Indie Flower', Merriweather, serif;font-size:34px;margin:0}
+		p.lead{color:var(--muted);margin:6px 0 0 0}
+
+		nav.top{display:flex;gap:12px;align-items:center}
+		nav.top a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+		nav.top a.cta{background:linear-gradient(90deg, rgba(102,209,255,0.08), rgba(102,209,255,0.03));color:var(--accent);border:1px solid rgba(102,209,255,0.12)}
+
+		/* hero */
+		.hero{margin-top:28px;background:transparent;padding:28px;border-radius:14px}
+		.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+		.hero h2{margin:0;font-size:36px;color:#f2fbff;font-family:'Indie Flower', 'Merriweather', serif}
+		.hero p{color:var(--muted);line-height:1.5}
+
+		/* floating planet illustration */
+		.planet{width:320px;height:220px;border-radius:12px;background:linear-gradient(135deg,#111827,#0b0f12);position:relative;overflow:hidden}
+		.planet::after{content:"";position:absolute;right:-60px;top:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.06), transparent 30%), radial-gradient(circle at 70% 70%, rgba(255,255,255,0.02), transparent 40%);transform:rotate(12deg);filter:blur(10px)}
+
+
+
+		/* timeline */
+		.timeline{margin-top:28x;position:relative;padding-left:36px}
+		.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,rgba(102,209,255,0.18),rgba(255,255,255,0.04));border-radius:4px}
+		.event{position:relative;margin:24px 0;padding:18px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.5);opacity:0;transform:translateY(18px);transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+		.event.revealed{opacity:1;transform:none}
+		.event .marker{display:none}
+		.date{display:block;margin-top:8px;color:var(--muted);font-size:13px;font-weight:600}
+		.event h3{margin:0 0 6px 0}
+		.event p{margin:0;color:var(--muted)}
+
+		.event .asset{float:right;width:160px;margin-left:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.6);overflow:hidden}
+		.event .asset img{width:100%;height:100%;object-fit:cover;display:block}
+		.credit{color:var(--muted);font-size:12px;margin-top:8px}
+
+		/* small animations */
+		@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+		.logo{animation:floaty 6s ease-in-out infinite}
+		.planet{animation:floaty 9s ease-in-out infinite}
+
+
+
+		footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+
+		/* responsive */
+		@media (max-width:920px){.hero-grid{grid-template-columns:1fr} .planet{order:-1;margin-bottom:12px;width:100%;height:180px}}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="brand">
+				<div class="logo">WS</div>
+				<div>
+					<h1>The World Space Timeline</h1>
+					<p class="lead">A concise, authoritative record of humanity's major space achievements.</p>
+				</div>
+			</div>
+			<nav class="top">
+				<a href="#timeline">Timeline</a>
+				<a href="achievements.html">Achievements</a>
+				<a href="astronauts.html">Famous astronauts</a>
+				<a class="cta" href="about.html">About</a>
+			</nav>
+		</header>
+
+		<section class="hero">
+			<div class="hero-grid">
+				<div>
+					<h2>From Sputnik to Artemis: milestones that shaped spaceflight</h2>
+					<p>Explore pioneering missions, landmark technologies, and the people who expanded humanity's reach into space.</p>
+				</div>
+				<div class="planet" aria-hidden="true">
+					<!-- inline planet illustration -->
+					<svg width="100%" height="100%" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<defs>
+							<radialGradient id="g1"><stop offset="0%" stop-color="#66d1ff" stop-opacity="0.14"/><stop offset="60%" stop-color="#000" stop-opacity="0.0"/></radialGradient>
+						</defs>
+						<rect width="100%" height="100%" fill="url(#g1)" />
+						<circle cx="220" cy="40" r="60" fill="#2b6b7f" opacity="0.12" />
+						<circle cx="80" cy="140" r="40" fill="#5a3b3f" opacity="0.08" />
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		<section id="timeline" class="timeline">
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- satellite -->
+					<g fill="#66d1ff" transform="translate(150,100)">
+						<rect x="-12" y="-35" width="24" height="35" rx="2"/>
+						<circle cx="-28" cy="-25" r="8" />
+						<circle cx="28" cy="-25" r="8" />
+						<rect x="-40" y="-8" width="80" height="4" />
+					</g>
+				</svg>
+				<h3>Sputnik 1 — First artificial satellite</h3>
+				<div class="date">1957</div>
+				<p>Launched by the Soviet Union on October 4, 1957, Sputnik 1 initiated the space age and demonstrated that Earth orbit was reachable.</p>
+			</article>
+
+			<!-- added first American in space -->
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- capsule rocket -->
+					<g fill="#ff6b6b" transform="translate(150,100)">
+						<rect x="-5" y="-40" width="10" height="40"/>
+						<polygon points="-8,-40 0,-55 8,-40"/>
+					</g>
+				</svg>
+				<h3>Alan Shepard — First American in space</h3>
+				<div class="date">1961</div>
+				<p>Aboard Freedom 7 (May 5, 1961), Shepard made a 15‑minute suborbital flight, becoming the second human in space after Gagarin and igniting the U.S. Mercury program.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- moon -->
+					<circle cx="150" cy="100" r="55" fill="#e8dcc8"/>
+					<circle cx="130" cy="80" r="6" fill="#a0997d" opacity="0.6"/>
+					<circle cx="165" cy="105" r="5" fill="#a0997d" opacity="0.6"/>
+					<circle cx="145" cy="130" r="4" fill="#a0997d" opacity="0.6"/>
+				</svg>
+				<h3>Apollo 11 — First crewed lunar landing</h3>
+				<div class="date">1969</div>
+				<p>On July 20, 1969, NASA's Apollo 11 mission landed humans on the Moon; Neil Armstrong and Buzz Aldrin walked on the lunar surface.</p>
+			</article>
+
+			<!-- first Latin American astronaut -->
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- Soyuz capsule -->
+					<g fill="#66d1ff" transform="translate(150,100)">
+						<ellipse cx="0" cy="0" rx="20" ry="40"/>
+						<rect x="-5" y="-40" width="10" height="20"/>
+					</g>
+				</svg>
+				<h3>Arnaldo Tamayo Méndez — First Latin American in space</h3>
+				<div class="date">1980</div>
+				<p>Cuban cosmonaut flew aboard Soyuz 38 as part of the Soviet Intercosmos program; first person of African descent and first Latin American to journey into orbit.</p>
+			</article>
+
+			<!-- first Indian astronaut -->
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- Soyuz capsule icon reused -->
+					<g fill="#66d1ff" transform="translate(150,100)">
+						<ellipse cx="0" cy="0" rx="20" ry="40"/>
+						<rect x="-5" y="-40" width="10" height="20"/>
+					</g>
+				</svg>
+				<h3>Rakesh Sharma — First Indian in space</h3>
+				<div class="date">1984</div>
+				<p>Flew aboard Soyuz T-11 as part of a joint Soviet-Indian mission; conducted scientific experiments on behalf of India and is celebrated as a national hero.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- telescope -->
+					<g stroke="#66d1ff" stroke-width="2" fill="none" transform="translate(150,100)">
+						<line x1="-40" y1="-30" x2="40" y2="30"/>
+						<circle cx="40" cy="30" r="15"/>
+						<circle cx="-40" cy="-30" r="12"/>
+						<rect x="-50" y="-20" width="10" height="40" fill="#66d1ff" opacity="0.6"/>
+					</g>
+				</svg>
+				<h3>Hubble Space Telescope — A new window</h3>
+				<div class="date">1990</div>
+				<p>Deployed in 1990, Hubble transformed astronomy with deep, high-resolution observations across multiple wavelengths.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- space station -->
+					<g fill="#66d1ff" transform="translate(150,100)">
+						<rect x="-60" y="-8" width="120" height="16" rx="2"/>
+						<rect x="-10" y="-30" width="20" height="22" rx="1"/>
+						<rect x="-10" y="8" width="20" height="22" rx="1"/>
+						<circle cx="-45" cy="0" r="5"/>
+						<circle cx="45" cy="0" r="5"/>
+					</g>
+				</svg>
+				<h3>International Space Station — Global microgravity lab</h3>
+				<div class="date">1998</div>
+				<p>Assembly began in 1998; the ISS serves as a multinational research outpost in low Earth orbit.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- rocket -->
+					<g fill="#ff6b6b" transform="translate(150,100)">
+						<path d="M 0,-35 L 12,-8 L 8,25 L -8,25 L -12,-8 Z"/>
+						<circle cx="0" cy="-35" r="10" fill="#ffd700"/>
+						<path d="M -12,15 L -20,30 L -12,25 Z" />
+						<path d="M 12,15 L 20,30 L 12,25 Z" />
+					</g>
+				</svg>
+				<h3>Private spaceflight era — New actors</h3>
+				<div class="date">2004–</div>
+				<p>Companies like SpaceX, Blue Origin, and others developed commercial launch systems, reusable rockets, and crewed commercial missions.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- mars rover -->
+					<g fill="#c49b7a" transform="translate(150,100)">
+						<rect x="-35" y="-10" width="70" height="20" rx="2"/>
+						<circle cx="-25" cy="12" r="10"/>
+						<circle cx="0" cy="12" r="10"/>
+						<circle cx="25" cy="12" r="10"/>
+						<rect x="-8" y="-20" width="16" height="10" rx="1" fill="#66d1ff"/>
+					</g>
+				</svg>
+				<h3>Mars rovers & sample return planning</h3>
+				<div class="date">2020s</div>
+				<p>Successful rover missions (Curiosity, Perseverance) expanded surface science; sample return missions are being planned and implemented.</p>
+			</article>
+
+			<article class="event reveal-on-scroll">
+				<svg class="asset" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<rect width="100%" height="100%" fill="#071827"/>
+					<!-- astronaut -->
+					<g fill="#ffd59e" transform="translate(150,100)">
+						<circle cx="0" cy="-25" r="18"/>
+						<rect x="-15" y="-5" width="30" height="25" rx="2"/>
+						<rect x="-22" y="8" width="12" height="20"/>
+						<rect x="10" y="8" width="12" height="20"/>
+						<rect x="-10" y="28" width="8" height="15"/>
+						<rect x="2" y="28" width="8" height="15"/>
+					</g>
+				</svg>
+				<h3>First Arab astronauts — Sultan bin Salman & Hazza Al Mansoori</h3>
+				<div class="date">1985, 2019</div>
+				<p>Sultan bin Salman Al Saud (Saudi Arabia) flew on STS-51-G in 1985 as the first Arab and Muslim astronaut. Decades later, in 2019 Hazzaa AlMansoori became the first Emirati astronaut to reach the ISS, marking major milestones for Arab spaceflight and leading the way for future space exploration.</p>
+			</article>
+
+
+		</section>
+
+		<footer>
+			Compiled timeline • For educational and reference use • Links and citations available on request
+		</footer>
+	</div>
+
+	<script>
+		// Simple scroll reveal using IntersectionObserver
+		(function(){
+			const obs = new IntersectionObserver((entries)=>{
+				entries.forEach(e=>{
+					if(e.isIntersecting) e.target.classList.add('revealed');
+				});
+			},{threshold:0.12});
+			document.querySelectorAll('.reveal-on-scroll').forEach(el=>{
+				obs.observe(el);
+			});
+		})();
+
+
+
+		// add scattered star dots
+		(function(){
+			for(let i=0;i<300;i++){
+				const d=document.createElement('div');
+				d.className='star';
+				d.style.position='fixed';
+				d.style.top=Math.random()*100+'%';
+				d.style.left=Math.random()*100+'%';
+				d.style.width='2px';
+				d.style.height='2px';
+				d.style.background='rgba(255,255,255,0.4)';
+				d.style.borderRadius='50%';
+				d.style.pointerEvents='none';
+				d.style.zIndex='0';
+				d.style.opacity=Math.random()*0.6+0.2;
+				document.body.appendChild(d);
+			}
+		})();
+	</script>
+</body>
+</html>
