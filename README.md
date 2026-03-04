@@ -15,7 +15,8 @@ It includes a timeline of important space events, a page about famous astronauts
 
 - Timeline (Home Page)  
 - Famous Astronauts  
-- About  
+- About
+- Acheivments
 
 ## How to Run
 
