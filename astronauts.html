@@ -4,36 +4,90 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Famous Astronauts</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Merriweather:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root{--bg-1:#020518;--text:#e6eef6;--muted:#9aa7b5;--card:rgba(255,255,255,0.03);--accent:#66d1ff}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui;background:linear-gradient(180deg,var(--bg-1),#061028);color:var(--text)}
-    .wrap{max-width:1000px;margin:36px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between}
-    h1{font-family:Merriweather,serif;margin:0}
-    p.lead{color:var(--muted);margin:6px 0 0}
+    :root{
+      --bg-1: #000000;
+      --bg-2: #000000;
+      --accent: #66d1ff;
+      --muted: #9aa7b5;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#e6eef6;overflow-x:hidden}
+
+    body::before, body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none}
+    body::before{
+      background-image: radial-gradient(rgba(255,255,255,0.95) 0.8px, transparent 1px), radial-gradient(rgba(255,255,255,0.7) 0.6px, transparent 1px);
+      background-size: 160px 160px, 48px 48px;
+      opacity:0.18;
+      transform:translateZ(0);
+    }
+    body::after{
+      background-image: radial-gradient(rgba(255,255,255,0.9) 0.9px, transparent 1px);
+      background-size: 24px 24px;
+      opacity:0.06;
+      animation: stars-twinkle 6s linear infinite;
+    }
+    @keyframes stars-twinkle{0%{opacity:0.06}50%{opacity:0.12}100%{opacity:0.06}}
+
+    .container{position:relative;z-index:1;max-width:1100px;margin:48px auto;padding:36px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#111317,#0b0f12);display:flex;align-items:center;justify-content:center;font-family:Merriweather;font-weight:700;color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    h1{font-family: 'Indie Flower', Merriweather, serif;font-size:34px;margin:0}
+    p.lead{color:var(--muted);margin:6px 0 0 0}
+
+    nav.top{display:flex;gap:12px;align-items:center}
+    nav.top a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav.top a.cta{background:linear-gradient(90deg, rgba(102,209,255,0.08), rgba(102,209,255,0.03));color:var(--accent);border:1px solid rgba(102,209,255,0.12)}
+
+    .hero{margin-top:18px;background:transparent;padding:18px;border-radius:14px}
+    .hero h2{margin:0;font-size:28px;color:#f2fbff;font-family:'Indie Flower', 'Merriweather', serif}
+    .hero p{color:var(--muted);line-height:1.5}
+
+    /* astronaut grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:24px}
     .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-    .avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:linear-gradient(135deg,#053040,#072b3a);color:var(--accent);font-size:20px}
-    .meta{display:flex;gap:12px;align-items:center}
+    .meta{display:flex;gap:12px;align-items:flex-start}
     .name{font-weight:600;margin:0}
     .date{color:var(--muted);font-size:13px;margin-top:6px}
     .bio{color:var(--muted);font-size:14px}
     a.more{color:var(--accent);text-decoration:none;font-size:13px}
+
+    /* small animations */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .logo{animation:floaty 6s ease-in-out infinite}
+
+    footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:920px){.hero-grid{grid-template-columns:1fr} .planet{order:-1;margin-bottom:12px;width:100%;height:180px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="container">
     <header>
-      <div>
-        <h1>Famous astronauts</h1>
-        <p class="lead">Pioneers, explorers, and innovators who expanded humanity's reach beyond Earth. From early space explorers to modern-day ISS crew members, these astronauts represent diverse backgrounds and achievements.</p>
+      <div class="brand">
+        <div class="logo">WS</div>
+        <div>
+          <h1>The World Space Timeline</h1>
+          <p class="lead">A concise, authoritative record of humanity's major space achievements.</p>
+        </div>
       </div>
-      <nav>
-        <a href="index.html" style="color:var(--muted);text-decoration:none">Back to timeline</a> |
-        <a href="achievements.html" style="color:var(--muted);text-decoration:none">Achievements</a>
+      <nav class="top">
+        <a href="index.html">Timeline</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="astronauts.html">Famous astronauts</a>
+        <a class="cta" href="about.html">About</a>
       </nav>
     </header>
+
+    <section class="hero">
+      <div>
+        <h2>Famous astronauts</h2>
+        <p>Pioneers, explorers, and innovators who expanded humanity's reach beyond Earth. From early space explorers to modern-day ISS crew members, these astronauts represent diverse backgrounds and achievements.</p>
+      </div>
+    </section>
 
     <section class="grid">
       <article class="card">
@@ -86,7 +140,7 @@
             <p class="name">Hazza Al Mansoori</p>
             <div class="date">2019</div>
             <p class="bio">First Emirati astronaut to reach the ISS (2019). Flew as a mission specialist aboard Soyuz MS-15 with a Russian-Japanese crew. His eight-day mission included scientific experiments and made history for the UAE and Arab world space programs.</p>
-            <a class="more" href="https://en.wikipedia.org/wiki/Hazzaa_Al_Mansoori" target="_blank" rel="noopener">Read more</a>
+            <a class="more" href="https://en.wikipedia.org/wiki/Hazzaa_AlMansoori" target="_blank" rel="noopener">Read more</a>
           </div>
         </div>
       </article>
@@ -218,7 +272,7 @@
             <p class="name">Noora AlMatrooshi</p>
             <div class="date">2023</div>
             <p class="bio">First Arab and Emirati woman in space (Axiom-2, 2023). Engineer and mission specialist from UAE. Her mission marked a historic milestone for women in Arab world space exploration and STEM participation.</p>
-            <a class="more" href="https://en.wikipedia.org/wiki/Noora_Al_Matrooshi" target="_blank" rel="noopener">Read more</a>
+            <a class="more" href="https://en.wikipedia.org/wiki/Noora_AlMatrooshi" target="_blank" rel="noopener">Read more</a>
           </div>
         </div>
       </article>
@@ -229,10 +283,47 @@
             <p class="name">Sultan AlNeyadi</p>
             <div class="date">2023</div>
             <p class="bio">Second Emirati astronaut and first Arab to conduct a long-duration ISS residency (186 days, Expedition 68–69, 2023). An engineer and pilot who contributed extensively to research and outreach during his mission.</p>
-            <a class="more" href="https://en.wikipedia.org/wiki/Sultan_Al_Neyadi" target="_blank" rel="noopener">Read more</a>
+            <a class="more" href="https://en.wikipedia.org/wiki/Sultan_AlNeyadi" target="_blank" rel="noopener">Read more</a>
           </div>
         </div>
       </article>
+
+    </section>
+
+    <footer>
+      Compiled timeline • For educational and reference use • Links and citations available on request
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('revealed'); });
+      },{threshold:0.12});
+      document.querySelectorAll('.card').forEach(el=>{ obs.observe(el); });
+    })();
+
+    (function(){
+      for(let i=0;i<300;i++){
+        const d=document.createElement('div');
+        d.className='star';
+        d.style.position='fixed';
+        d.style.top=Math.random()*100+'%';
+        d.style.left=Math.random()*100+'%';
+        d.style.width='2px';
+        d.style.height='2px';
+        d.style.background='rgba(255,255,255,0.4)';
+        d.style.borderRadius='50%';
+        d.style.pointerEvents='none';
+        d.style.zIndex='0';
+        d.style.opacity=Math.random()*0.6+0.2;
+        document.body.appendChild(d);
+      }
+    })();
+  </script>
+</body>
+</html>
+
 
   </div>
 </body>
